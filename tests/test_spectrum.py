@@ -3,10 +3,12 @@ from objective_harmony.models import Spectrum
 
 
 class SpectrumTestCase(TestCase):
-    def setup(self, name='12-tet'):
-        return Spectrum.objects.create(name=name)
+    def setup(self):
+        self.name = '12-tet'
+        return Spectrum.objects.create(name=self.name)
 
     def test_spectrum_creation(self):
-        spectrum = self.setup()
-        self.assertTrue(isinstance(spectrum, Spectrum))
-        self.assertEqual(spectrum.__str__(), spectrum.name)
+        assert isinstance(self.setup(), Spectrum)
+
+    def test_db_column_name(self):
+        assert type(self.setup().name) is str
