@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Spectrum
+from objective_harmony.models import Spectrum
 
 
 class SpectrumTestCase(TestCase):
